@@ -6,8 +6,6 @@ services:
       - db
     ports:
       - "5000:5000"
-    networks:
-      - backend
 
   db:
     image: mysql:5.7.40
@@ -17,8 +15,6 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
-    networks:
-      - backend
 
 networks:
   backend:
