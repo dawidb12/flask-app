@@ -13,8 +13,12 @@ pipeline {
         }
         stage("Prune Docker data") {
             steps {
-                sh 'docker system prune -a --volumes -f'
-                sh 'docker compose down --remove-orphans -v'
+                sh '''
+                  docker system prune -a --volumes -f
+                  docker compose down --remove-orphans -v
+                  docker rm -vf $(docker ps -aq)
+                  docker rmi -f $(docker images -aq)
+                '''
             }
         }
         stage("Start container") {
