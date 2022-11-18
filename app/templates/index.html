@@ -1,0 +1,31 @@
+<html lang="en">
+    <head>
+        <title>index</title>
+        <link rel="stylesheet" href="../static/style.css">
+    </head>
+ 
+    <body bgcolor="#fce7dd">
+        <div class="one">
+            <div class="two">
+                <h1>Menu główne</h1>
+                <ul>
+                    <li class="active"><a href="{{url_for('index')}}">Strona główna</a></li>
+                    <li><a href="{{url_for('display')}}">Dane użytkownika</a></li>
+                    <li><a href="{{url_for('update')}}">Zmień dane</a></li>
+                    <li><a href="{{url_for('logout')}}">Wyloguj się</a></li>
+                </ul>
+            </div>
+            <div class="content" align="center">
+                <div class="topbar">
+                    <h2>Witaj na stronie głównej</h2>                       
+                </div></br></br>
+                <div class="contentbar">
+                     <div class="msg">{{ msg }}</div>
+                </div>
+                <div class="contentbar">
+                    <div class="msg">Użyj menu po lewej stronie, aby zarządzać danymi użytkownika.</div>
+                 
+            </div>
+        </div>
+    </body>
+</html>
