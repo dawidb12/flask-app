@@ -16,7 +16,7 @@ pipeline {
                 sh '''
                   docker compose down --remove-orphans -v
                   docker system prune -a --volumes -f
-                  #docker rmi -f $(docker images -aq)
+                  docker rmi -f $(docker images -aq)
                 '''
             }
         }
