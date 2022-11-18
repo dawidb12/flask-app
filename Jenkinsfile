@@ -24,14 +24,15 @@ pipeline {
         }
         stage("Run tests against the container") {
             steps {
+                sh 'echo "The site is available under $(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1):5000"'
                 sh 'curl http://localhost:5000'
             }
         }
     }
-    post {
-        always {
-            sh 'docker-compose down --remove-orphans -v'
-            sh 'docker-compose ps'
-        }
-    }
+    // post {
+    //     always {
+    //         sh 'docker-compose down --remove-orphans -v'
+    //         sh 'docker-compose ps'
+    //     }
+    // }
 }
