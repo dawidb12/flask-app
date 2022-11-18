@@ -31,7 +31,7 @@ pipeline {
     post {
         always {
             sh '''
-              hostname -I | awk '{ print $1 }'
+              echo Test your site under $(hostname -I | awk '{ print $1 }'):5000
             '''
         }
     }
