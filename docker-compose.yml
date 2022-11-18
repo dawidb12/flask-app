@@ -6,6 +6,7 @@ services:
       - db
     ports:
       - "5000:5000"
+    network_mode: "host"
 
   db:
     image: mysql:5.7.40
@@ -15,6 +16,4 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
-
-networks:
-  backend:
+    network_mode: "host"
