@@ -30,9 +30,9 @@ pipeline {
     }
     post {
         always {
-            sh """
+            sh '''
               hostname -I | awk '{ print $1 }'
-            """
+            '''
         }
     }
 }
