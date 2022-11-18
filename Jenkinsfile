@@ -30,7 +30,7 @@ pipeline {
     }
     post {
         always {
-            sh 'echo The site is available under $(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1):5000'
+            sh 'echo The site is available under $(ip addr show eth0 | grep "inet\b" | awk \'{print $2}\' | cut -d/ -f1):5000'
         }
     }
 }
